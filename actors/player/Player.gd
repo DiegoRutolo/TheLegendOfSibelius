@@ -25,24 +25,21 @@ func _physics_process(delta):
 		INTERACTUAR:
 			vect_movimiento = Vector2.ZERO
 	
+	# Movimiento
 	velocidad = velocidad.move_toward(vect_movimiento*MAX_SPEED, ACELERACION*delta)
 	velocidad = move_and_slide(velocidad)
 	
 	# Acciones
 	if Input.is_action_just_pressed("ui_interact"):
-		interactuar()
+		$Interactuador.do_the_thing()
 
 func set_direccion(val):
 	direccion = val.normalized()
-	$Interactuador.set_direccion(val)
-
-func interactuar():
-	$Interactuador.do_the_thing()
+	$Interactuador.direccion = direccion
 
 
 func _on_start_interaccion():
 	estado = INTERACTUAR
-
 
 func _on_end_interaccion():
 	estado = MOVER

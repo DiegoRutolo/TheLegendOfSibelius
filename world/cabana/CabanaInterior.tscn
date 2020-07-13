@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://sprites/interior.png" type="Texture" id=1]
 [ext_resource path="res://sprites/Inner.png" type="Texture" id=2]
 [ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://world/objetos/Mesita.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world/objetos/lareira/Lareira.tscn" type="PackedScene" id=5]
 
 [sub_resource type="TileSet" id=1]
 0/name = "interior.png 0"
@@ -621,7 +622,7 @@ tile_data = PoolIntArray( 13, 0, 0, 14, 0, 1, 15, 0, 1, 16, 0, 2, 65537, 2, 0, 6
 tile_set = SubResource( 18 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -65534, 6, 0, -65533, 7, 0, -65529, 4, 0, -65527, 7, 0, -65526, 4, 0, 0, 0, 0, 65543, 5, 0, 131079, 5, 0, 327688, 8, 0, 327689, 9, 0, 327695, 2, 0, 393231, 3, 0 )
+tile_data = PoolIntArray( -65534, 6, 0, -65533, 7, 0, -65529, 4, 0, -65527, 7, 0, -65526, 4, 0, 0, 0, 0, 65543, 5, 0, 131079, 5, 0, 327688, 8, 0, 327689, 9, 0 )
 
 [node name="Mesita" parent="YSort/Decoracion" instance=ExtResource( 4 )]
 position = Vector2( 92, 79 )
@@ -631,6 +632,10 @@ position = Vector2( 498, 283 )
 
 [node name="Mesita3" parent="YSort/Decoracion" instance=ExtResource( 4 )]
 position = Vector2( 531, 283 )
+
+[node name="Lareira" parent="YSort/Decoracion" instance=ExtResource( 5 )]
+position = Vector2( 342, 198 )
+scale = Vector2( 1.05179, 1.45085 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 206, 296 )

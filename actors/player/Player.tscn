@@ -15,16 +15,16 @@ MAX_SPEED = 150
 ACELERACION = 600
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -53 )
+position = Vector2( 0, -43 )
 texture = ExtResource( 1 )
 vframes = 5
 hframes = 9
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -10 )
 rotation = 1.58393
 shape = SubResource( 1 )
 
 [node name="Interactuador" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 1.32, 1.12 )
 [connection signal="end_interaccion" from="Interactuador" to="." method="_on_end_interaccion"]
 [connection signal="start_interaccion" from="Interactuador" to="." method="_on_start_interaccion"]
