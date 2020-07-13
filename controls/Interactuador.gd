@@ -18,6 +18,7 @@ func set_direccion(val):
 	
 
 func do_the_thing():
-	print($Area2D.get_overlapping_bodies())
 	if $Area2D.get_overlapping_bodies().size() > 0:
 		$Area2D.get_overlapping_bodies()[0].interact()
+	if $Area2D.get_overlapping_areas().size() > 0:
+		$Area2D.get_overlapping_areas()[0].interact()
