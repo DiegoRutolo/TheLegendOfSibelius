@@ -12,6 +12,11 @@ var estado = MOVER
 var velocidad = Vector2.ZERO
 var direccion = Vector2.DOWN setget set_direccion
 
+onready var animation_state = $AnimationTree.get("parameters/playback")
+
+func _ready():
+	$AnimationTree.active = true
+
 func _physics_process(delta):
 	var vect_movimiento = Vector2.ZERO
 	vect_movimiento.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -22,8 +27,11 @@ func _physics_process(delta):
 		MOVER:
 			if vect_movimiento != Vector2.ZERO:
 				self.direccion = vect_movimiento.normalized()
+				animation_state.travel("Walk")
+			else:
+				animation_state.travel("Idle")
 		
-		INTERACTUAR:
+		_:
 			vect_movimiento = Vector2.ZERO
 	
 	# Movimiento
@@ -36,7 +44,10 @@ func _physics_process(delta):
 
 func set_direccion(val):
 	direccion = val.normalized()
+	print(direccion)
 	$Interactuador.direccion = direccion
+	$AnimationTree.set("parameters/Idle/blend_position", direccion)
+	$AnimationTree.set("parameters/Walk/blend_position", direccion)
 
 
 func _on_start_interaccion():
