@@ -16,6 +16,7 @@ func _physics_process(delta):
 	var vect_movimiento = Vector2.ZERO
 	vect_movimiento.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	vect_movimiento.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	vect_movimiento = vect_movimiento.normalized()
 	
 	match estado:
 		MOVER:
