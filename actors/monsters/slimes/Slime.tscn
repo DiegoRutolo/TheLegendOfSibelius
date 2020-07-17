@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://actors/monsters/Enemigo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/monsters/slimeGreen.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 21.0001
+height = 47.9999
+
+[sub_resource type="Animation" id=2]
+resource_name = "move_left"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.29087, 0.814748 ), Vector2( 0.881165, 1.18767 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "move_right"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.29087, 0.814748 ), Vector2( 0.881165, 1.18767 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=4]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 26.0
+height = 39.9999
+
+[node name="Slime" instance=ExtResource( 1 )]
+scale = Vector2( 0.3, 0.3 )
+collision_mask = 11
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+offset = Vector2( 0, -64 )
+flip_h = true
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -21 )
+rotation = 1.57079
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "move_left"
+anims/move_left = SubResource( 2 )
+anims/move_right = SubResource( 3 )
+
+[node name="AnimationTree" parent="." index="3"]
+parameters/playback = SubResource( 4 )
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, -26 )
+rotation = 1.57079
+shape = SubResource( 5 )
+
+[editable path="Hurtbox"]

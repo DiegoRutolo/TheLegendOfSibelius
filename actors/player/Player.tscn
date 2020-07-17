@@ -183,37 +183,38 @@ animation = "walk_up"
 [sub_resource type="AnimationNodeAnimation" id=16]
 animation = "walk_left"
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "walk_right"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=17]
+[sub_resource type="AnimationNodeBlendSpace2D" id=18]
 blend_point_0/node = SubResource( 14 )
 blend_point_0/pos = Vector2( 1, 0 )
 blend_point_1/node = SubResource( 15 )
 blend_point_1/pos = Vector2( 0, -1 )
 blend_point_2/node = SubResource( 16 )
 blend_point_2/pos = Vector2( -1, 0 )
-blend_point_3/node = SubResource( 22 )
+blend_point_3/node = SubResource( 17 )
 blend_point_3/pos = Vector2( 0, 1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=18]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
-[sub_resource type="AnimationNodeStateMachine" id=20]
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachine" id=21]
 states/Idle/node = SubResource( 13 )
 states/Idle/position = Vector2( 219, 86 )
-states/Walk/node = SubResource( 17 )
+states/Walk/node = SubResource( 18 )
 states/Walk/position = Vector2( 436, 86 )
-transitions = [ "Idle", "Walk", SubResource( 18 ), "Walk", "Idle", SubResource( 19 ) ]
+transitions = [ "Idle", "Walk", SubResource( 19 ), "Walk", "Idle", SubResource( 20 ) ]
 start_node = "Idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=21]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=22]
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.6, 0.6 )
 collision_layer = 3
+collision_mask = 9
 script = ExtResource( 2 )
 MAX_SPEED = 150
 ACELERACION = 600
@@ -242,9 +243,9 @@ anims/walk_right = SubResource( 7 )
 anims/walk_up = SubResource( 8 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 20 )
+tree_root = SubResource( 21 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 21 )
+parameters/playback = SubResource( 22 )
 parameters/Idle/blend_position = Vector2( 0.0726531, 0.303797 )
 parameters/Walk/blend_position = Vector2( -1, 0 )
 [connection signal="end_interaccion" from="Interactuador" to="." method="_on_end_interaccion"]

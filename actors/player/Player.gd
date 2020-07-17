@@ -44,7 +44,6 @@ func _physics_process(delta):
 
 func set_direccion(val):
 	direccion = val.normalized()
-	print(direccion)
 	$Interactuador.direccion = direccion
 	$AnimationTree.set("parameters/Idle/blend_position", direccion)
 	$AnimationTree.set("parameters/Walk/blend_position", direccion)
