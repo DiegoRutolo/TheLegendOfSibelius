@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+export(int) var hp = 150 setget set_hp
 export(int) var max_speed = 50
 export(int) var aceleracion = 100
 
@@ -12,3 +13,8 @@ func _physics_process(delta):
 
 func set_direccion(val: Vector2):
 	direccion = val.normalized()
+
+func set_hp(val):
+	hp = val
+	if hp <= 0:
+		queue_free()

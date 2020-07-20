@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/gui/corazon_lleno_grande.png" type="Texture" id=1]
+[ext_resource path="res://sprites/gui/bola_mana.png" type="Texture" id=2]
+[ext_resource path="res://gui/HUD.gd" type="Script" id=3]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="BarraSuperior" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HP" type="HBoxContainer" parent="BarraSuperior"]
+margin_right = 60.0
+margin_bottom = 32.0
+
+[node name="Icon" type="TextureRect" parent="BarraSuperior/HP"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="BarraSuperior/HP"]
+margin_left = 36.0
+margin_top = 9.0
+margin_right = 60.0
+margin_bottom = 23.0
+text = "150"
+
+[node name="Mana" type="HBoxContainer" parent="BarraSuperior"]
+margin_left = 64.0
+margin_right = 116.0
+margin_bottom = 32.0
+
+[node name="Icon" type="TextureRect" parent="BarraSuperior/Mana"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="BarraSuperior/Mana"]
+margin_left = 36.0
+margin_top = 9.0
+margin_right = 52.0
+margin_bottom = 23.0
+text = "20"

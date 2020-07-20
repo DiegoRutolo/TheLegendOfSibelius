@@ -19,6 +19,10 @@ config/name="TheLegendOfSibelius"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerStats="*res://actors/player/PlayerStats.tscn"
+
 [display]
 
 window/size/width=640

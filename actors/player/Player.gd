@@ -48,9 +48,19 @@ func set_direccion(val):
 	$AnimationTree.set("parameters/Idle/blend_position", direccion)
 	$AnimationTree.set("parameters/Walk/blend_position", direccion)
 
+func danhar(val: int):
+	PlayerStats.hp -= val
 
 func _on_start_interaccion():
 	estado = INTERACTUAR
 
 func _on_end_interaccion():
 	estado = MOVER
+
+
+func _on_Hurtbox_area_entered(area):
+	danhar(area.danho)
+
+
+func _on_Hurtbox_body_entered(body):
+	danhar(body.danho)

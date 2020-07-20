@@ -34,10 +34,17 @@ func set_direccion(val):
 	else:
 		$AnimationPlayer.play("move_left")
 	
-
-
 func _on_Timer_timeout():
 	destino = Vector2(
 		rand_range(-MARGEN, MARGEN),
 		rand_range(-MARGEN, MARGEN)
 	) + position
+
+func danhar(val):
+	self.hp -= val
+
+func _on_Hurtbox_area_entered(area):
+	danhar(area.danho)
+
+func _on_Hurtbox_body_entered(body):
+	danhar(body.danho)
