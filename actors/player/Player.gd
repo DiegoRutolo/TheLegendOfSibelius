@@ -42,6 +42,22 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_interact"):
 		$Interactuador.do_the_thing()
 
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT:
+			if not event.pressed:
+				var pos_origen = self.position
+				var pos_click = get_global_mouse_position()
+				spawn_proyectil(pos_origen.direction_to(pos_click))
+
+func spawn_proyectil(dir: Vector2):
+	var bola_scn = load("res://actors/proyectiles/BolaDeFuego.tscn")
+	var bola = bola_scn.instance()
+	bola.direccion = dir
+	bola.velocidad = bola.max_speed * dir
+	bola.rotation = Vector2.DOWN.angle_to(dir)
+	add_child_below_node(get_tree().get_root().get_node("/root/Main/World"), bola)
+
 func set_direccion(val):
 	direccion = val.normalized()
 	$Interactuador.direccion = direccion

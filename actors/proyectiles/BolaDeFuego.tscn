@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/objetos/bola_de_fuego/Ardentryst-m_fire1_2.png" type="Texture" id=1]
+[ext_resource path="res://actors/proyectiles/Proyectil.tscn" type="PackedScene" id=2]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[node name="BolaDeFuego" instance=ExtResource( 2 )]
+hp = 1
+max_speed = 300
+aceleracion = 300
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -11 )
+
+[node name="AnimationTree" parent="." index="3"]
+parameters/playback = SubResource( 1 )
+
+[node name="Hitbox" parent="." index="4"]
+danho = 20
