@@ -19,14 +19,14 @@ Un par de definciones:
 	+ Tierra
 	+ Piedra
 	+ Metal
-	+ Combinación
+	+ Combinación ¿?
 
 + **Características**:
 	+ Especie
 	+ Raza
 	+ Tamaño
 	+ Color
-	+ Elemento?
+	+ Elemento ¿?
 
 ## Circulos y rituales
 
@@ -43,8 +43,8 @@ Un par de definciones:
 			+ Magnitud
 			+ Duración
 		+ Alterar
-			+ Añadir
-			+ Quitar
+			+ Añadir/quitar [elemento, forma, funcion]
+			+ ...
 	+ Objetivo
 		+ Item
 			+ En el interior del círculo
@@ -63,11 +63,11 @@ Un par de definciones:
 + El exterior indica la función
 	+ Puede enlazar con otros círculos o simbolos para indicar los componentes secundarios
 + El interior indica el objetivo
-+ Si no se mantiene la simetría del círculo es posible que éste falle (parcial, completa o catastróficamente)
++ (¿?) Si no se mantiene la simetría del círculo es posible que éste falle (parcial, completa o catastróficamente)
 
 ### Ejemplos Rituales
 
-'''
+```
 {
 	Daño: {
 		Elemento: luz,
@@ -78,13 +78,27 @@ Un par de definciones:
 		Rango: 10
 	}
 }
-'''
-Crea una luz que ilumina toda la sala y daña a las criaturas sensibles a la luz
+```
+Crea una luz que ilumina toda la sala y daña a las criaturas sensibles a la luz durante 9 minutos
+
+```
+{
+	Funcion: {Alter: {[
+		Añadir: {Elemento: "magia"},
+		Añadir: {Elemento: "fuego"},
+		Añadir: {Forma: "proyectil"},
+		Añadir: {Funcion: "dañar"}
+	]}},
+	Objetivo: "item"
+
+}
+```
+Creación de hechizo BOLA DE FUEGO
 
 
 ## Hechizos
 
-+ Los hechizos se pueden crear en rituales: Alterar Item
++ Los hechizos se pueden crear en rituales: Alterar Item (+magia, +elemento, +forma, +funcion)
 + Se utiliza una piedra especial
 	+ Se gasta con el uso
 	+ Consume mana al usarlo
