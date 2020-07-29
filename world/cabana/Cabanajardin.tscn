@@ -246,6 +246,3 @@ limit_top = 0
 
 [node name="Slime" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 219, 691 )
-
-[node name="Slime2" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 584, 691 )

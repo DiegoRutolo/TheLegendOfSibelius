@@ -19,3 +19,5 @@ parameters/playback = SubResource( 1 )
 
 [node name="Hitbox" parent="." index="4"]
 danho = 20
+
+[editable path="Hitbox"]

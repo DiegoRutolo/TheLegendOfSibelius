@@ -78,12 +78,10 @@ height = 46.6666
 
 [node name="Slime" instance=ExtResource( 1 )]
 scale = Vector2( 0.3, 0.3 )
-collision_mask = 11
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
 offset = Vector2( 0, -64 )
-flip_h = true
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, -21 )
@@ -98,18 +96,14 @@ anims/move_right = SubResource( 3 )
 [node name="AnimationTree" parent="." index="3"]
 parameters/playback = SubResource( 4 )
 
-[node name="Hurtbox" parent="." index="4"]
-visible = false
-
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -26 )
 rotation = 1.57079
 shape = SubResource( 5 )
 
-[node name="Detector" parent="." index="5"]
-visible = false
-
 [node name="Hitbox" parent="." index="7" instance=ExtResource( 3 )]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -20 )

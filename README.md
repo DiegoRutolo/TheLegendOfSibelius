@@ -2,6 +2,8 @@
 
 RPG en Godot
 
+> Desarrollo pausado. Tengo que aprender mucho sobre Godot para hacer todo lo que quiero.
+
 
 ## Conceptos generales
 

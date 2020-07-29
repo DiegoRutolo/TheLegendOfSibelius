@@ -44,7 +44,9 @@ func danhar(val):
 	self.hp -= val
 
 func _on_Hurtbox_area_entered(area):
+	print("area")
 	danhar(area.danho)
 
 func _on_Hurtbox_body_entered(body):
+	print("body")
 	danhar(body.danho)
